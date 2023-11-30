@@ -6,8 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 const Stack = createStackNavigator();
 
 
-function HomeScreen({ navigation }) {
-  navigation.setOptions({ title: 'Pulsaid' });
+function HomeScreen() {
   return (
     <View style={styles.container}>
       <Text></Text>
@@ -21,7 +20,11 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Pulsaid" component={HomeScreen} />
+      <Stack.Screen 
+          name="Home" 
+          component={HomeScreen} 
+          options={{ title: 'Pulsaid' }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

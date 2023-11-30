@@ -1,54 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import * as Notifications from 'expo-notifications';
-import React, { useEffect } from 'react';
-
+// Import screens
+import HomeScreen from './screens/to fix/HomeScreen';
+import LogIn from './screens/to fix/LogIn';
+import PickLanguage from './screens/PickLanguage';
+import NederlandsSetupEen from './screens/Nederlands/NederlandsSetupEen';
+import EnglishSetupEen from './screens/English/EnglishSetupEen';
 
 const Stack = createStackNavigator();
+// function HomeScreen() {
+//   return (
+//     <View style={styles.container}>
+//       <Text>hejjj</Text>
+//       <StatusBar style="auto" />
+      
+//     </View>
+//   );
+// }
 
-
-function HomeScreen() {
-  const scheduleNotification = async () => {
-    await Notifications.scheduleNotificationAsync({
-      content: {
-        title: "We need you...",
-        body: 'Someone is dying, please help us!',
-        sound: 'default',
-      },
-      trigger: { seconds: 2 },
-    });
-  };
-  return (
-    <View style={styles.container}>
-      <Text></Text>
-      <StatusBar style="auto" />
-      <Button title="Schedule Notification" onPress={scheduleNotification} />
-    </View>
-  );
-}
-export default function App() {
-  useEffect(() => {
-    Notifications.setNotificationHandler({
-      handleNotification: async () => ({
-        shouldShowAlert: true,
-        shouldPlaySound: false,
-        shouldSetBadge: false,
-      }),
-    });
-    Notifications.requestPermissionsAsync()
-    .then(status => console.log(status))
-    .catch(err => console.log(err));
-  }, []); 
+export default function App() { 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-      <Stack.Screen 
-          name="Home" 
-          component={HomeScreen} 
-          options={{ title: 'Pulsaid' }}
-        />
+      <Stack.Navigator screenOptions={{ headerShown: false, gestureEnabled: false, animationEnabled: false, }}>
+        <Stack.Screen name="PickLanguage" component={PickLanguage} />
+        <Stack.Screen name="LogIn" component={LogIn} />
+        <Stack.Screen name="Home" component={HomeScreen}/>
+        <Stack.Screen name="NederlandsSetupEen" component={NederlandsSetupEen}/>
+        <Stack.Screen name="EnglishSetupEen" component={EnglishSetupEen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -56,9 +35,6 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+
   },
 });

@@ -13,8 +13,9 @@ function HomeScreen() {
   const scheduleNotification = async () => {
     await Notifications.scheduleNotificationAsync({
       content: {
-        title: "Test Notification 📬",
-        body: 'This is a test notification!',
+        title: "We need you...",
+        body: 'Someone is dying, please help us!',
+        sound: 'default',
       },
       trigger: { seconds: 2 },
     });
@@ -27,8 +28,6 @@ function HomeScreen() {
     </View>
   );
 }
-
-
 export default function App() {
   useEffect(() => {
     Notifications.setNotificationHandler({
@@ -42,15 +41,6 @@ export default function App() {
     .then(status => console.log(status))
     .catch(err => console.log(err));
   }, []); 
-  const scheduleNotification = async () => {
-    await Notifications.scheduleNotificationAsync({
-      content: {
-        title: "Test Notification 📬",
-        body: 'This is a test notification!',
-      },
-      trigger: { seconds: 2 },
-    });
-  };
   return (
     <NavigationContainer>
       <Stack.Navigator>

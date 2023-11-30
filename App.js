@@ -5,8 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './screens/to fix/HomeScreen';
 import LogIn from './screens/to fix/LogIn';
 import PickLanguage from './screens/PickLanguage';
-import NederlandsSetupEen from './screens/Nederlands/NederlandsSetupEen';
-import EnglishSetupEen from './screens/English/EnglishSetupEen';
+import SetupEen from './screens/SetupEen';
 
 const Stack = createStackNavigator();
 // function HomeScreen() {
@@ -26,8 +25,7 @@ export default function App() {
         <Stack.Screen name="PickLanguage" component={PickLanguage} />
         <Stack.Screen name="LogIn" component={LogIn} />
         <Stack.Screen name="Home" component={HomeScreen}/>
-        <Stack.Screen name="NederlandsSetupEen" component={NederlandsSetupEen}/>
-        <Stack.Screen name="EnglishSetupEen" component={EnglishSetupEen}/>
+        <Stack.Screen name="SetupEen" component={SetupEen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

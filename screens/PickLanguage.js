@@ -9,8 +9,8 @@ export default function PickLanguage({ navigation }) {
         setSelectedLanguage(language);
     };
 
-    const handleNext = () => {
-        navigation.navigate('LogIn', { language: selectedLanguage });
+    const sendLanguage = () => {
+        navigation.navigate('SetupEen', { language: selectedLanguage });
     };
 
     return (
@@ -36,7 +36,7 @@ export default function PickLanguage({ navigation }) {
                 </View>
                 <TouchableOpacity
                     style={[styles.bottomRight]}
-                    onPress={handleNext}
+                    onPress={sendLanguage}
                     disabled={!selectedLanguage}
                 >
                     <Text style={styles.buttonText}>&gt;</Text>
